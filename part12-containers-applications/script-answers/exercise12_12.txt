@@ -1,0 +1,46 @@
+**********************
+PowerShell transcript start
+Start time: 20220817105352
+**********************
+Transcript started, output file is C:\fullstack_open_part12\part12-containers-applications\script-answers\exercise12_12.txt
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml down --volumes
+Stopping todo-backend_redis_1 ... done
+Stopping todo-backend_mongo_1 ... done
+Removing todo-backend_redis_1 ... done
+Removing todo-backend_mongo_1 ... done
+Removing network todo-backend_default
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml up -d
+Creating network "todo-backend_default" with the default driver
+Creating todo-backend_mongo_1 ... done
+Creating todo-backend_redis_1 ... done
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> curl http://localhost:3000/statistics
+{"addedTodos":0}
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml down --volumes
+Stopping todo-backend_redis_1 ... done
+Stopping todo-backend_mongo_1 ... done
+Removing todo-backend_redis_1 ... done
+Removing todo-backend_mongo_1 ... done
+Removing network todo-backend_default
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml up -d
+Creating network "todo-backend_default" with the default driver
+Creating todo-backend_mongo_1 ... done
+Creating todo-backend_redis_1 ... done
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> curl http://localhost:3000/statistics
+{"added_todos":"42"}
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml down --volumes
+Stopping todo-backend_mongo_1 ... done
+Stopping todo-backend_redis_1 ... done
+Removing todo-backend_mongo_1 ... done
+Removing todo-backend_redis_1 ... done
+Removing network todo-backend_default
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> docker-compose -f docker-compose.dev.yml up -d
+Creating network "todo-backend_default" with the default driver
+Creating todo-backend_redis_1 ... done
+Creating todo-backend_mongo_1 ... done
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> curl http://localhost:3000/statistics
+{"added_todos":"42"}
+PS C:\fullstack_open_part12\part12-containers-applications\todo-app\todo-backend> Stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20220817105624
+**********************

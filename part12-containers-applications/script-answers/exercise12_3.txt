@@ -1,0 +1,12 @@
+﻿Transcript started, output file is C:\fullstack_open_part12\part12-containers-applications\script-answers\exercise12_3.txt
+
+PS C:\fullstack_open_part12\part12-containers-applications\script-answers> docker start -i affectionate_colden
+root@8960a6adfd51:/# cd /usr/src/app
+root@8960a6adfd51:/usr/src/app# ls
+index.js
+root@8960a6adfd51:/usr/src/app# nano index.js
+PS C:\fullstack_open_part12\part12-containers-applications\script-answers> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20220812162004
+**********************

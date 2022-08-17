@@ -1,0 +1,90 @@
+**********************
+PowerShell transcript start
+Start time: 20220816112537
+**********************
+Transcript started, output file is C:\fullstack_open_part12\part12-containers-applications\script-answers\exercise12_8.txt
+PS C:\fullstack_open_part12\part12-containers-applications\script-answers> cd ..
+PS C:\fullstack_open_part12\part12-containers-applications> docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS                     NAMES
+62e201880b23   nginx     "/docker-entrypoint.…"   9 minutes ago       Up 9 minutes       0.0.0.0:8080->80/tcp      kind_davinci
+7dd9a972d40b   mongo     "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3456->27017/tcp   todo-backend_mongo_1
+PS C:\fullstack_open_part12\part12-containers-applications> docker exec -it todo-backend_mongo1 bash
+Error: No such container: todo-backend_mongo1
+PS C:\fullstack_open_part12\part12-containers-applications> docker exec -it todo-backend_mongo_1 bash
+root@7dd9a972d40b:/# mongo
+MongoDB shell version v5.0.10
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("262e65ce-3a21-49f8-990c-39eac7351a3a") }
+MongoDB server version: 5.0.10
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+        https://community.mongodb.com
+> ^C
+bye
+root@7dd9a972d40b:/# mongo -u root -p example
+MongoDB shell version v5.0.10
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("05185fea-65fe-4b3d-bf8b-f32eda308520") }
+MongoDB server version: 5.0.10
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-08-16T07:09:33.672+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database
+switched to db the_database
+> show collections
+todos
+> db.todos.find({})
+{ "_id" : ObjectId("62fb460d68064b077c5a01c0"), "text" : "Joujou tehää lisää hommii", "done" : true, "__v" : 0 }
+{ "_id" : ObjectId("62fb4ac7d6ad8c371c23f981"), "text" : "Joujou tehää vieläki hommiiiii", "done" : true, "__v" : 0 }
+> db.todos.insertOne({"text": "Increase the number of tools in my toolbelt", "done": false })
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("62fb5771ea622ff861820d3a")
+}
+> db.todos.find({})
+{ "_id" : ObjectId("62fb460d68064b077c5a01c0"), "text" : "Joujou tehää lisää hommii", "done" : true, "__v" : 0 }
+{ "_id" : ObjectId("62fb4ac7d6ad8c371c23f981"), "text" : "Joujou tehää vieläki hommiiiii", "done" : true, "__v" : 0 }
+{ "_id" : ObjectId("62fb5771ea622ff861820d3a"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> ^C
+bye
+root@7dd9a972d40b:/# exit
+exit
+PS C:\fullstack_open_part12\part12-containers-applications> Stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20220816113934
+**********************
